@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#clean volumes not used
+docker volume prune
+
+# remove unused image overlay volumes
+docker image prune -a
