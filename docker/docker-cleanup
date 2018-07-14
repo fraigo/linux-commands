@@ -1,7 +1,17 @@
 #!/bin/bash
 
+#show current usage
+df -h /var/lib/docker
+
 #clean volumes not used
-docker volume prune
+docker volume prune -f
 
 # remove unused image overlay volumes
 docker image prune -a
+
+# remove all containers and images
+docker rm -vf $(docker ps -aq)
+docker rmi -f $(docker images -aq)
+
+#show resulting usage
+df -h /var/lib/docker

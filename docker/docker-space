@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# find all folders with at least 1MB
+du /var/lib/docker -h -t 1000000
